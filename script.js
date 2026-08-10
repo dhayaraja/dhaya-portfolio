@@ -89,3 +89,13 @@ document.querySelector('#exhibition').addEventListener('click', (event) => {
   const y = (event.clientY - bounds.top) / bounds.height;
   if (x > 0.75 && y > 0.28 && y < 0.64) window.open('https://beliapp.co/app/dhayarose', '_blank', 'noopener');
 });
+
+// Reveal the sticky contact/résumé bar once the hero animation has played or the user scrolls
+(() => {
+  const bar = document.querySelector('.cta-bar');
+  if (!bar) return;
+  const show = () => bar.classList.add('shown');
+  // show as soon as the user scrolls past the hero; stays hidden over the hero itself
+  const onScroll = () => { if (window.scrollY > window.innerHeight * 0.6) { show(); window.removeEventListener('scroll', onScroll, { passive: true }); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
