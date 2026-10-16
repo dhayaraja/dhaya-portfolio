@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wayfair Rugs Market Intelligence — PMM Case Study — Dhaya Raja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cloud:#F6F1E6;
+    --sand:#EBDFC5;
+    --sand-deep:#DCC99C;
+    --ink:#2B2419;
+    --ink-soft:#5C5142;
+    --terracotta:#B85C33;
+    --terracotta-deep:#9A4A28;
+    --sage:#7C8B69;
+    --plum:#452C49;
+    --line:rgba(43,36,25,0.14);
+    --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cloud); color:var(--ink);
+    font-family:'Public Sans', sans-serif; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; margin:0; color:var(--ink); }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .wrap{ max-width:980px; margin:0 auto; padding:0 32px; }
+  a{ color:var(--terracotta-deep); }
+  ::selection{ background:var(--terracotta); color:var(--cloud); }
+
+  .braid{
+    height:12px; width:100%;
+    background:
+      repeating-linear-gradient(45deg, var(--terracotta) 0 6px, transparent 6px 12px),
+      repeating-linear-gradient(-45deg, var(--sage) 0 6px, transparent 6px 12px),
+      var(--sand);
+    opacity:0.85;
+  }
+
+  /* ===== HERO ===== */
+  .hero{ padding:52px 0 60px; }
+  .hero-tags{ margin-bottom:24px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--terracotta-deep);
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  h1.headline{
+    font-size:clamp(32px,4.6vw,50px); line-height:1.15; max-width:760px; letter-spacing:-0.01em;
+  }
+  .hero-sub{ margin-top:20px; max-width:620px; font-size:18px; color:var(--ink-soft); line-height:1.65; }
+
+  .hero-stats{ display:flex; gap:0; margin-top:40px; flex-wrap:wrap; }
+  .hero-stat{ padding-right:36px; margin-right:36px; border-right:1px solid var(--line); }
+  .hero-stat:last-child{ border-right:none; }
+  .hero-stat .num{ font-family:'Fraunces', serif; font-size:32px; color:var(--terracotta-deep); }
+  .hero-stat .lbl{ font-size:13px; color:var(--ink-soft); margin-top:4px; max-width:150px; }
+
+  /* ===== SECTIONS ===== */
+  section{ padding:52px 0; border-top:1px solid var(--line); }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--sage); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:14px; }
+  h2.section-title{ font-size:clamp(23px,2.8vw,30px); max-width:640px; margin-bottom:22px; }
+  .lede{ font-size:16.5px; color:var(--ink-soft); max-width:640px; line-height:1.65; }
+
+  .two-col{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start; }
+  @media(max-width:760px){ .two-col{ grid-template-columns:1fr; } }
+
+  .stat-card{ background:var(--sand); border-radius:var(--radius); padding:30px 32px; }
+  .stat-num{ font-family:'Fraunces', serif; font-size:44px; color:var(--terracotta-deep); line-height:1; }
+  .stat-label{ margin-top:10px; font-size:14.5px; color:var(--ink-soft); max-width:300px; }
+
+  /* process steps */
+  .steps{ display:flex; flex-direction:column; }
+  .step{ display:grid; grid-template-columns:56px 1fr; gap:22px; padding:22px 0; border-top:1px solid var(--line); }
+  .step:first-child{ border-top:none; }
+  .step-num{ font-family:'Fraunces', serif; font-size:24px; color:var(--terracotta); }
+  .step h3{ font-size:19px; margin-bottom:6px; }
+  .step p{ margin:0; font-size:15px; color:var(--ink-soft); max-width:580px; }
+  .step .arrow{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--sage); margin-top:6px; }
+
+  /* messaging pillars */
+  .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media(max-width:700px){ .pillars{ grid-template-columns:1fr; } }
+  .pillar{ background:var(--sand); border-radius:var(--radius); padding:24px 22px; }
+  .pillar .pillar-tag{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--terracotta-deep); margin-bottom:8px; display:block; }
+  .pillar h3{ font-size:18px; margin-bottom:8px; }
+  .pillar p{ margin:0; font-size:14px; color:var(--ink-soft); }
+
+  /* competitive table */
+  table.compete{ width:100%; border-collapse:collapse; font-size:14.5px; }
+  table.compete th{
+    text-align:left; padding:10px 14px 10px 0; font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--sage); text-transform:uppercase; border-bottom:1px solid var(--line);
+  }
+  table.compete td{ padding:14px 14px 14px 0; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top; }
+  table.compete td:first-child{ color:var(--ink); font-weight:600; }
+  table.compete td.hl{ color:var(--terracotta-deep); font-weight:600; }
+
+  /* deliverables grid */
+  .deliverables{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media(max-width:700px){ .deliverables{ grid-template-columns:1fr; } }
+  .deliverable{ background:var(--sand); border-radius:var(--radius); padding:22px 24px; display:flex; flex-direction:column; gap:6px; }
+  .deliverable .d-tag{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--sage); }
+  .deliverable h3{ font-size:17px; }
+  .deliverable p{ margin:0; font-size:14px; color:var(--ink-soft); }
+
+  /* results strip */
+  .results-grid{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  @media(max-width:700px){ .results-grid{ grid-template-columns:repeat(2,1fr); } }
+  .result{ padding:26px 20px; border-right:1px solid var(--line); }
+  .result:last-child{ border-right:none; }
+  .result .num{ font-family:'Fraunces', serif; font-size:30px; color:var(--terracotta-deep); }
+  .result .lbl{ margin-top:8px; font-size:13px; color:var(--ink-soft); line-height:1.4; }
+
+  footer{ padding:50px 0 70px; }
+  footer p{ font-size:14px; color:var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="braid"></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-tags">
+      <span class="tag">Wayfair Externship &middot; Product Marketing Case Study</span>
+    </div>
+    <h1 class="headline">Turning raw market signals into a category go-to-market strategy.</h1>
+    <p class="hero-sub">As a Business Intelligence AI Agent Engineer for Wayfair's Rugs category, I built the research and content pipeline a product marketer would use to size a trend, benchmark competitors, and ship on-brand content, then used it to deliver Wayfair's actual GTM narrative for the shag rug category.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">9.59%</div><div class="lbl">Shag category CAGR identified</div></div>
+      <div class="hero-stat"><div class="num">$130.6B</div><div class="lbl">Projected category size by 2033</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="lbl">Connected AI systems shipped solo</div></div>
+    </div>
+  </header>
+
+  <!-- ROLE & PROBLEM -->
+  <section>
+    <div class="eyebrow">Role &amp; the problem</div>
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">The rugs category team had no fast way to turn signals into strategy.</h2>
+        <p class="lede">Trend discovery, competitive benchmarking, and content production were three disconnected, manual workflows. Trends were spotted late, competitor pricing and assortment gaps went unmeasured, and turning either into publish-ready content took days. I built and operated a connected AI research pipeline to close that gap, then used it to produce Wayfair's actual market and competitive intelligence for the shag rug category.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">unmet need identified in the category: washable shag. Maintenance worry is still what stops a high-pile sale from closing, a clear whitespace Wayfair hasn't answered yet.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY -->
+  <section>
+    <div class="eyebrow">Strategy &amp; process</div>
+    <h2 class="section-title">A four-stage intelligence-to-content pipeline, four connected AI systems.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Trend &amp; demand research</h3>
+          <div class="arrow">social &amp; market signals &rarr; automated trend report</div>
+          <p>Built an agent that scans Instagram, Pinterest, and industry blogs to surface emerging rug design trends automatically. Headline finding: shag is shedding its "70s retro" stigma and re-emerging as a premium "sensory wellness" category, with Luxury Cloud, Modern Playful, and Moroccan-Inspired shag as the fastest-moving micro-segments.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Competitive intelligence</h3>
+          <div class="arrow">raw product data streams &rarr; business intelligence report</div>
+          <p>Orchestrated multi-retailer scrapers into one schema, benchmarking Wayfair against Amazon and Walmart on price, assortment, and ratings across 48 Wayfair, 6 Amazon, and 10 Walmart products to surface strategic whitespace.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Positioning &amp; messaging synthesis</h3>
+          <div class="arrow">trend + competitive data &rarr; category narrative</div>
+          <p>Combined both reports into a single strategic read: Wayfair's premium pricing is earned, not just charged, and "washable" is the one conversion lever Amazon owns that Wayfair hasn't claimed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Content &amp; enablement</h3>
+          <div class="arrow">market + competitor intel &rarr; execution-ready content</div>
+          <p>Built an agent that ingests both reports and converts them directly into publish-ready marketing collateral in Wayfair's brand voice, then unified every output into one Category Intelligence Dashboard for the team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING & MESSAGING -->
+  <section>
+    <div class="eyebrow">Positioning &amp; messaging</div>
+    <h2 class="section-title">The category narrative the research supported.</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-tag">Ride the tailwind</span>
+        <h3>No longer niche</h3>
+        <p>Shag is growing at a 9.59% CAGR, on track from $62.9B to $130.6B by 2033, a category tailwind worth building assortment and content around now.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Justify the premium</span>
+        <h3>The price gap is earned</h3>
+        <p>Wayfair's high-pile and faux-fur options hold 4.5&ndash;5 star ratings, proof that the $932 average price point against Amazon's $89 and Walmart's $51 reflects real quality, not just markup.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Close the gap</span>
+        <h3>Own "washable"</h3>
+        <p>Washable shag is the single biggest unmet need in the category, and the one place Amazon's budget listings currently win the conversation Wayfair should be having.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE INTELLIGENCE -->
+  <section>
+    <div class="eyebrow">Competitive intelligence</div>
+    <h2 class="section-title">Benchmarked across 64 products spanning three retailers.</h2>
+    <table class="compete">
+      <tr><th>Attribute</th><th>Wayfair</th><th>Amazon</th><th>Walmart</th></tr>
+      <tr><td>Avg. price</td><td>$932.49</td><td>$88.83</td><td class="hl">$51.16 (lowest)</td></tr>
+      <tr><td>Price range</td><td class="hl">$15.99 &ndash; $6,150 (broadest)</td><td>$69 &ndash; $102</td><td>$24.20 &ndash; $129.99</td></tr>
+      <tr><td>Avg. rating</td><td>N/A in sample</td><td>4.5 / 5</td><td>4.6 / 5</td></tr>
+      <tr><td>Positioning</td><td class="hl">Design-led, mid-to-luxury, broad materials &amp; styles</td><td>Practical, machine-washable, non-slip</td><td>Ultra-budget, high variety, frequent discounts</td></tr>
+    </table>
+  </section>
+
+  <!-- ENABLEMENT / DELIVERABLES -->
+  <section>
+    <div class="eyebrow">Cross-functional enablement</div>
+    <h2 class="section-title">Work samples built for the category and content teams.</h2>
+    <div class="deliverables">
+      <div class="deliverable">
+        <span class="d-tag">Research</span>
+        <h3>Shag Rug Trend Report</h3>
+        <p>Automated trend synthesis from Instagram, Pinterest, and industry blog signals, identifying the category's fastest-moving micro-segments.</p>
+      </div>
+      <div class="deliverable">
+        <span class="d-tag">Competitive Intel</span>
+        <h3>Competitor Analysis Report</h3>
+        <p>Side-by-side benchmarking of Wayfair, Amazon, and Walmart on price, assortment, and ratings across 64 sampled products.</p>
+      </div>
+      <div class="deliverable">
+        <span class="d-tag">Content Strategy</span>
+        <h3>AI Insights &amp; Content Report</h3>
+        <p>6 content ideas, 3 campaign concepts, a 3-part email nurture series, and 2 video scripts generated from a single intelligence pipeline run, in Wayfair's brand voice.</p>
+      </div>
+      <div class="deliverable">
+        <span class="d-tag">Reporting</span>
+        <h3>Category Intelligence Dashboard</h3>
+        <p>A unified, execution-ready view combining trend, competitor, and content-engine outputs for the Rugs category team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section>
+    <div class="eyebrow">Results</div>
+    <h2 class="section-title">A shipped intelligence system, not just a report.</h2>
+    <div class="results-grid">
+      <div class="result"><div class="num">9.59%</div><div class="lbl">category CAGR identified, sizing the opportunity through 2033</div></div>
+      <div class="result"><div class="num">64</div><div class="lbl">products benchmarked across Wayfair, Amazon, and Walmart</div></div>
+      <div class="result"><div class="num">14</div><div class="lbl">pieces of execution-ready content generated per single pipeline run</div></div>
+      <div class="result"><div class="num">5</div><div class="lbl">connected AI systems designed, built, and shipped solo</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Wayfair Externship &middot; Business Intelligence AI Agent Engineer &middot; Research, competitive intelligence, and content strategy by Dhaya Raja</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

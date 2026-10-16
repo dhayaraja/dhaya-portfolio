@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ephira — Case Study | Dhaya Raja</title>
+<style>
+  :root{
+    --blush:#fce8e5; --ink:#2b1f24; --wine:#8c3a52; --wine-dark:#6e2c40;
+    --cream:#f2e4bf; --slate:#65759a; --line:#e3c9c9; --card:#ffffff;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){--blush:#221a1c; --ink:#f3e6e2; --card:#2c2224; --line:#4a3438;}
+  }
+  :root[data-theme="dark"]{--blush:#221a1c; --ink:#f3e6e2; --card:#2c2224; --line:#4a3438;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--blush);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6;}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 80px;}
+  .eyebrow{font-family:Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--wine);margin:0 0 10px;}
+  h1{font-size:2.4rem;margin:0 0 6px;line-height:1.15;}
+  .role{font-family:Arial,sans-serif;font-size:15px;color:var(--ink);opacity:.75;margin:0 0 22px;}
+  .linkrow{font-family:Arial,sans-serif;font-size:13px;margin-bottom:36px;}
+  .linkrow a{color:var(--wine);text-decoration:none;border-bottom:1px solid var(--line);margin-right:16px;}
+  .gradientbar{height:14px;border-radius:7px;margin:0 0 40px;background:linear-gradient(90deg,#f6c9d6,#e98fa0,#c94141,#7a2436,#b6a6d6);}
+  h2{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);border-bottom:1px solid var(--line);padding-bottom:8px;margin:44px 0 16px;}
+  p{margin:0 0 14px;}
+  .pull{font-style:italic;font-size:1.15rem;color:var(--wine-dark);border-left:3px solid var(--wine);padding:2px 0 2px 18px;margin:20px 0;}
+  ul{margin:0 0 14px;padding-left:20px;}
+  li{margin-bottom:8px;}
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 6px;}
+  .stat{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px;}
+  .stat b{display:block;font-family:Arial,sans-serif;font-size:1.5rem;color:var(--wine);}
+  .stat span{font-family:Arial,sans-serif;font-size:12px;opacity:.75;}
+  .badge{display:inline-block;font-family:Arial,sans-serif;font-size:11px;background:var(--cream);color:#5a4a2e;padding:3px 9px;border-radius:20px;margin:0 6px 6px 0;}
+  .bugbox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-family:Arial,sans-serif;font-size:14px;margin:14px 0;}
+  .bugbox .lbl{font-weight:bold;color:var(--wine);font-size:11px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  .gallery{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 8px;}
+  .shot{flex:1 1 150px;max-width:190px;}
+  .shot img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.12);}
+  .shot p{font-family:Arial,sans-serif;font-size:12px;opacity:.75;margin:8px 0 0;text-align:center;}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-family:Arial,sans-serif;font-size:13px;opacity:.7;}
+  footer a{color:var(--wine);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Case Study — Consumer Health App</p>
+  <h1>Ephira</h1>
+  <p class="role">Co‑Founder &amp; Product / UX Lead, alongside project partner Alex Ulbrich · Sept 2025 – May 2026</p>
+  <div class="linkrow">
+    <a href="https://ephira.capucity.be/" target="_blank">Live app site</a>
+    <a href="https://github.com/adulbrich/ephira" target="_blank">GitHub (open source)</a>
+    <a href="https://apps.apple.com/us/app/ephira/id6741593838" target="_blank">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.capucity.ephira" target="_blank">Google Play</a>
+  </div>
+  <div class="gradientbar" aria-hidden="true"></div>
+
+  <h2>The Problem</h2>
+  <p>Most cycle-tracking apps monetize the most sensitive data a person has — and they still force a hard break the moment a user gets pregnant. Existing tools make people abandon their cycle history and switch to an entirely different app, losing continuity right when it matters most.</p>
+  <p class="pull">"Fragmented care leaves expecting parents in the dark."</p>
+  <p>That line, from our expo positioning, was the whole thesis: build one privacy-first product that adapts across a user's life stage instead of forcing a platform switch.</p>
+
+  <h2>Research → Product Direction</h2>
+  <p>Before touching UI, I synthesized peer-reviewed research on pregnancy-app usability (app-store sentiment analysis, a 31-app clinical quality review) alongside a competitive UX teardown, and kept surfacing the same four gaps: emotional isolation, confusing/scattered medical data, "pregnancy brain" memory lapses, and unclear nutrition guidance. That research became the argument for Ephira's pregnancy mode — the same local-first, no-account architecture, extended rather than replaced.</p>
+
+  <h2>My Role</h2>
+  <p>I owned product design and code quality on a three-person engineering team, working directly with our founder/stakeholder to keep every UI decision privacy-first — reviewing PRs specifically to confirm no accidental analytics or network calls slipped into the app.</p>
+  <ul>
+    <li><b>Gradient cycle-flow visualization</b> — replaced the old dot-based flow indicator with a color-coordinated gradient (spotting → light → medium → heavy flow) that reads instantly at a glance, unified across iOS and Android.</li>
+    <li><b>Home screen "Current Phase" card</b> — redesigned the phase indicator and next-period countdown for faster comprehension.</li>
+    <li><b>Calendar tab</b> — rebuilt the flow-logging dropdown around the same unified color system.</li>
+    <li><b>Pregnancy Mode v1</b> — designed and shipped the first tab states (home, info, calendar) and the structural layout for 40 weeks of educational content.</li>
+  </ul>
+
+  <div class="bugbox">
+    <span class="lbl">A bug worth naming</span>
+    My first version of the gradient only transitioned correctly in one direction — tapping flow states in reverse (heavy → light) or skipping a level broke the visual entirely. I traced it to a directional assumption baked into the color-interpolation logic, rebuilt it to handle arbitrary state transitions, then formalized <b>16 edge-case and 8 fallback test scenarios</b> around cycle prediction and flow logging so the same class of bug couldn't ship silently again.
+  </div>
+
+  <h2>UI Implementation</h2>
+  <p>The three screens below are shipped, in-app — not mockups. Each one reflects a UI decision I owned end to end.</p>
+  <div class="gallery">
+    <div class="shot"><img src="assets/home-gradient-tracker.webp" alt="Ephira home screen with the gradient cycle tracking ring"><p>Home — gradient tracking ring replacing the old dot indicator</p></div>
+    <div class="shot"><img src="assets/cycle-current-phase.webp" alt="Ephira cycle tab showing current phase, day count, and next period estimate"><p>Cycle tab — "Current Phase" card + next-period estimate</p></div>
+    <div class="shot"><img src="assets/calendar-flow-logging.webp" alt="Ephira calendar with color-coded flow and birth control logging"><p>Calendar — unified color system for flow, birth control &amp; symptom logging</p></div>
+  </div>
+
+  <h2>Go-to-Market &amp; Positioning</h2>
+  <p>I led the product demo and UI/UX walkthrough in our stakeholder presentation, then presented Ephira's go-to-market and positioning strategy to a panel of judges at the OSU Capstone Expo — framing the product around its core differentiator (local-first privacy with zero telemetry) against cloud-based competitors, backed by the app's MIT-licensed, publicly auditable codebase as proof.</p>
+
+  <h2>Process</h2>
+  <p>Across three academic terms the team shipped through <b>156+ pull requests</b> under a two-reviewer approval policy with CI-enforced lint and test gates — no PR merged without passing automated checks and a peer sign-off.</p>
+
+  <h2>Outcome</h2>
+  <div class="stats">
+    <div class="stat"><b>500+</b><span>downloads across iOS &amp; Android</span></div>
+    <div class="stat"><b>16 / 8</b><span>edge-case / fallback test scenarios</span></div>
+    <div class="stat"><b>156+</b><span>PRs shipped across 3 terms</span></div>
+  </div>
+  <p><span class="badge">React Native</span><span class="badge">Expo</span><span class="badge">SQLite + SQLCipher (AES-256)</span><span class="badge">Drizzle ORM</span><span class="badge">MIT open source</span></p>
+
+  <h2>What I'd carry forward</h2>
+  <p>The clearest lesson from the retrospective was the simplest one: an idea that sounds great in a design review means nothing if it doesn't hold up for a real, everyday user — which is exactly why the edge-case testing mattered as much as the visual redesign.</p>
+
+  <footer>Case study by Dhaya Raja · <a href="https://ephira.capucity.be/">ephira.capucity.be</a></footer>
+</div>
+</body>
+</html>

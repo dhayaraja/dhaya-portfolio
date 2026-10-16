@@ -1,12 +1,120 @@
-:root{--blush:#fce8e5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:52px}body{margin:0;background:var(--blush);overflow-x:hidden}.canvas{width:100%;aspect-ratio:1024.5/576;position:relative;overflow:hidden}.layout{display:block;width:100%;height:100%;object-fit:cover}.skip-link{position:absolute;left:-999px;z-index:60}.skip-link:focus{left:12px;top:46px;background:#fff;padding:10px}section[id],footer[id]{scroll-margin-top:52px}.hero{background:var(--blush)}.hero-title{opacity:0;z-index:3}.ducati{position:absolute;z-index:2;width:82%;left:9%;top:10%}.ducati.gone{display:none}.hotspot,.project-hit,.social-hit{position:absolute;display:block;border:0;outline:none;background:transparent}.portrait-frame{left:4%;top:2%;width:26%;height:31%;transition:background-color .25s ease}.portrait-frame:hover,.portrait-frame:focus-visible{background-color:rgba(30,20,15,.22)}.about-link{left:4%;top:35%;width:27%;height:39%;transform:rotate(3deg)}.stats-link{left:26%;top:55%;width:22%;height:40%;transform:rotate(-3deg)}.work-link{left:48.7%;top:16%;width:17%;height:27%}.skills-link{left:66%;top:16%;width:17%;height:27%}.exhibition-link{left:49%;top:46%;width:35%;height:32%}.petals{position:absolute;left:0;bottom:0;width:36%;height:58%;pointer-events:none}.petals i{position:absolute;width:1.25vw;height:.9vw;background:#e68da6;border-radius:100% 0 100% 0;animation:petal 4.4s linear infinite}.petals i:nth-child(1){left:26%;top:10%}.petals i:nth-child(2){left:45%;top:30%;animation-delay:.8s}.petals i:nth-child(3){left:70%;top:13%;animation-delay:1.5s}.petals i:nth-child(4){left:58%;top:45%;animation-delay:2.1s}.petals i:nth-child(5){left:12%;top:34%;animation-delay:2.7s}.petals i:nth-child(6){left:81%;top:29%;animation-delay:3.2s}.phone-video{position:absolute;z-index:2;top:16%;width:23%;height:70.6%;object-fit:cover;border-radius:8%;background:#000}.tiktok{left:2.5%}.instagram{left:26%}.wayfair{left:10.5%;top:25%;width:27.5%;height:31%}.ephira{left:40.5%;top:25%;width:27.5%;height:31%}.gogreek{left:25%;top:61%;width:27.5%;height:31%}.skills-canvas{background:#fffdf8}.skills-label{position:absolute;z-index:2;top:1.5%;left:1.3%;margin:0;color:#bd999d;text-transform:uppercase;font:.945vw Georgia,serif;letter-spacing:.25em}.ballerina-stage{position:absolute;z-index:2;left:1%;top:16%;height:76%;width:20%;pointer-events:none}.dancer{display:none;width:100%;height:100%;object-fit:contain}.dancer.active{display:block}.ballerina-hit{position:absolute;z-index:3;left:1%;top:16%;width:20%;height:76%;border:0;background:transparent;cursor:pointer}.ballerina-hit span{position:absolute;left:30%;bottom:0;white-space:nowrap;font:1.26vw Georgia,serif;transform:rotate(-12deg);color:#512032}.ballerina-hit:focus-visible{outline:none}.skill-toolkit{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}.skills-canvas.played .ballerina-stage{opacity:0;transition:opacity .3s}.skills-canvas.played .skill-toolkit{opacity:1}.skills-canvas.played .ballerina-hit{display:none}.skills-canvas.played .skills-label{display:none}.camera-screen{position:absolute;z-index:2;left:30.5%;top:49.6%;width:29.7%;height:37.1%;overflow:hidden;background:#000}.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s}.slide.active{opacity:1}.linkedin{left:10.1%;top:24.9%;width:26.5%;height:52.4%}.instagram-link{left:36.7%;top:24.9%;width:26.5%;height:52.4%}.pinterest{left:63.4%;top:24.9%;width:26.5%;height:52.4%}@keyframes petal{0%{opacity:0;transform:translate(0,0) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translate(9vw,29vw) rotate(380deg)}}@media(max-width:720px){.canvas{width:900px;max-width:none;left:50%;transform:translateX(-50%)}.hero{width:100%;max-width:none;left:0;transform:none;height:auto;aspect-ratio:1024.5/576}.petals i{width:11px;height:8px}.ballerina-hit span{font-size:11.7px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.ducati{display:none}.hero-title{opacity:1}.ballerina-stage{display:none}.skill-toolkit{opacity:1}}
+:root{--blush:#fce8e5;--sage:#e3ead6;--cream:#f7f0e6;--pink-bg:#fbe6ea;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow-x:hidden;background:var(--blush)}
+.canvas,.shade-canvas{scroll-margin-top:3.4rem}
+body{font-family:Georgia,serif}
+img{display:block;max-width:100%}
+.layout{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.skip-link{position:absolute;left:-9999px;top:0;background:#fff;color:#000;padding:.5em 1em;z-index:99}
+.skip-link:focus{left:0}
+.canvas{position:relative;width:100%;aspect-ratio:1366/768;overflow:hidden}
 
-/* Sticky recruiter CTA bar */
-.cta-bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 14px;background:#bd999d;box-shadow:0 1px 8px rgba(81,32,50,.18);font-family:Georgia,serif;transform:translateY(-110%);transition:transform .3s ease}.cta-bar.shown{transform:translateY(0)}.cta-name{font-size:15px;font-weight:700;color:#fffdf8;letter-spacing:.02em}.cta-links{display:flex;gap:8px;flex-wrap:wrap}.cta-btn{display:inline-block;padding:6px 12px;border-radius:999px;background:#fffdf8;color:#512032;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;transition:transform .15s ease,background .15s ease}.cta-btn:hover,.cta-btn:focus-visible{transform:translateY(-1px);background:#fce8e5;outline:2px solid #512032;outline-offset:1px}
+/* ---------- hero ---------- */
+.hero-title{opacity:0;z-index:3}
+.ducati{position:absolute;z-index:2;width:82%;left:9%;top:10%}
+.ducati.gone{display:none}
 
-/* Plain-text recruiter / screen-reader view */
-.text-view{background:#fffdf8;color:#3a2730;font-family:Georgia,'Times New Roman',serif;line-height:1.65;padding:64px 24px 96px;border-top:2px solid #fce8e5}.text-view h1{font-size:clamp(1.9rem,4vw,2.6rem);margin:0 0 4px;color:#512032;letter-spacing:-.01em}.text-view__tagline{margin:0 0 28px;color:#bd999d;font-size:1.05rem;text-transform:uppercase;letter-spacing:.14em}.text-view h2{font-size:1.3rem;margin:34px 0 10px;color:#512032;border-bottom:1px solid #fce8e5;padding-bottom:6px}.text-view p,.text-view li{font-size:1.02rem;max-width:760px}.text-view ul{list-style:none;padding:0;margin:0}.text-view li{margin:0 0 14px;padding-left:22px;position:relative}.text-view li::before{content:'\2665';position:absolute;left:0;top:0;color:#e68da6;font-size:.9em}.text-view a{color:#9a4a6a;text-decoration:underline;text-underline-offset:2px}.text-view a:hover,.text-view a:focus-visible{color:#512032}
+/* ---------- generic hotspot ---------- */
+.hotspot{position:absolute;display:block;background:transparent;-webkit-tap-highlight-color:transparent;outline:none}
 
-@media(max-width:720px){.cta-bar{padding:6px 10px}.cta-name{font-size:13px}.cta-btn{font-size:11px;padding:5px 9px}.text-view{padding:48px 16px 72px}.text-view h1{font-size:1.7rem}.text-view h2{font-size:1.1rem}.text-view p,.text-view li{font-size:.98rem}}
-/* Mobile-only section navigation */
-.mobile-nav{display:none}@media(max-width:720px){.mobile-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;justify-content:space-around;gap:4px;padding:6px 8px;background:#fffdf8;border-top:1px solid #fce8e5;box-shadow:0 -2px 8px rgba(81,32,50,.12);font-family:Georgia,serif}.mobile-nav a{flex:1;text-align:center;font-size:12px;font-weight:700;color:#512032;text-decoration:none;padding:6px 2px;border-radius:8px;background:#fce8e5}.mobile-nav a:active,.mobile-nav a:hover{background:#e68da6;color:#fffdf8}body{padding-bottom:48px}}
-@media(max-width:720px){.cta-name{display:none}.cta-btn[href="#summary"]{display:none}.cta-btn{font-size:11px;padding:5px 9px}.text-view{padding-top:60px}}
+/* ---------- menu (5 frames) ---------- */
+.about-link{left:14.71%;top:45.44%;width:11.42%;height:20.45%}
+.stats-link{left:31.99%;top:61.98%;width:12.08%;height:19.66%}
+.work-link{left:52.56%;top:28.26%;width:11.93%;height:19.53%}
+.palette-link{left:67.35%;top:29.04%;width:10.76%;height:20.44%}
+.exhibition-link{left:55.05%;top:54.82%;width:22.62%;height:22.65%}
+
+/* ---------- about ---------- */
+.petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.petals i{position:absolute;left:8%;top:60%;width:10px;height:14px;background:#f3c9d4;border-radius:60% 0;opacity:0;animation:petal 6s linear infinite}
+.petals i:nth-child(2){left:11%;animation-delay:1s}
+.petals i:nth-child(3){left:14%;animation-delay:2.2s}
+.petals i:nth-child(4){left:17%;animation-delay:3.4s}
+.petals i:nth-child(5){left:20%;animation-delay:.6s}
+.petals i:nth-child(6){left:23%;animation-delay:4.6s}
+@keyframes petal{0%{opacity:0;transform:translate(0,0) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate(40px,220px) rotate(220deg)}}
+
+/* ---------- stats videos ---------- */
+.phone-video{position:absolute;z-index:2;object-fit:cover;background:#000;border-radius:10%/6%}
+.phone-video.tiktok{left:8.1%;top:17.5%;width:19.7%;height:61.9%}
+.phone-video.instagram{left:29%;top:17%;width:19.75%;height:62.4%}
+
+/* ---------- my work ---------- */
+.work-canvas{background:var(--sage)}
+.work-folders,.ballerina-link{display:none}
+.work-canvas .work-intro-bg{position:relative;z-index:1}
+.ballerina-stage{position:absolute;z-index:2;top:0;left:1%;width:24%;height:100%;transition:left .1s linear}
+.dancer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .15s}
+.dancer.active{opacity:1}
+.ballerina-hit{position:absolute;z-index:3;left:0;top:0;width:100%;height:100%;background:transparent;border:0;cursor:pointer;padding:0}
+.ballerina-hit span{position:absolute;left:10%;bottom:9%;white-space:nowrap;font:.945vw Georgia,serif;transform:rotate(-12deg);color:#40532e}
+.work-canvas.played .ballerina-stage,.work-canvas.played .ballerina-hit,.work-canvas.played .work-intro-bg{display:none}
+.work-canvas.played .work-folders,.work-canvas.played .ballerina-link{display:block}
+.folder-wayfair{left:10.25%;top:21.9%;width:16.8%;height:31.25%}
+.folder-rhode{left:30.2%;top:21.9%;width:16.3%;height:31.25%;cursor:default}
+.folder-ephira{left:50.1%;top:21.9%;width:16.8%;height:31.25%}
+.folder-gogreek{left:10.25%;top:58.3%;width:17%;height:31.5%}
+.folder-bereal{left:30.2%;top:58.3%;width:16.1%;height:31.5%;cursor:default}
+.folder-corvo{left:49.9%;top:58.3%;width:16.3%;height:31.5%}
+.ballerina-link{left:75.5%;top:31%;width:13%;height:53%}
+
+/* ---------- palette ---------- */
+.palette-canvas{background:var(--cream)}
+.brush{position:absolute;z-index:3;left:4.507%;top:38.945%;width:16.398%;height:55.078%;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.brush.dragging{cursor:grabbing;transition:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.25))}
+.drop-zone{position:absolute;background:transparent}
+
+/* ---------- shade detail pages ---------- */
+.shade-canvas{display:none}
+.shade-canvas:target{display:block}
+.shade-close{left:61%;top:11%;width:9%;height:12%}
+
+/* ---------- exhibition ---------- */
+.camera-screen{position:absolute;z-index:2;left:30.5%;top:49.6%;width:29.7%;height:37.1%;overflow:hidden;background:#000}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.slide.active{opacity:1}
+
+/* ---------- connect ---------- */
+.social-hit{position:absolute}
+.linkedin{left:10.1%;top:24.9%;width:26.5%;height:52.4%}
+.instagram-link{left:36.7%;top:24.9%;width:26.5%;height:52.4%}
+.pinterest{left:63.4%;top:24.9%;width:26.5%;height:52.4%}
+
+/* ---------- nav bar ---------- */
+.cta-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem 1.2rem;background:#FAA2BF;font-family:Georgia,serif;flex-wrap:wrap}
+.cta-name{font-weight:bold;color:#fff;letter-spacing:.03em}
+.cta-links{display:flex;gap:.5rem;flex-wrap:wrap}
+.cta-btn{color:#fff;text-decoration:none;font-size:.85rem;padding:.35rem .8rem;border:1px solid rgba(255,255,255,.7);border-radius:999px;transition:background-color .2s ease}
+.mobile-nav{display:none;position:sticky;top:2.6rem;z-index:49;background:#fff0f5;padding:.4rem 0;text-align:center;gap:.6rem;font-family:Georgia,serif}
+.mobile-nav a{color:#FAA2BF;text-decoration:none;font-size:.85rem;margin:0 .5rem}
+@media(max-width:720px){.mobile-nav{display:flex;justify-content:center;flex-wrap:wrap}}
+
+/* On desktop the artwork scales with the window, so the nav bar and the text summary
+   scale with it too (vw units). This keeps them in proportion at any browser zoom level. */
+@media(min-width:900px){
+  .canvas,.shade-canvas{scroll-margin-top:3.3vw}
+  .cta-bar{padding:.55vw 1.4vw;gap:1vw}
+  .cta-name{font-size:1.2vw}
+  .cta-links{gap:.6vw}
+  .cta-btn{font-size:.95vw;padding:.3vw .95vw}
+}
+
+/* ---------- cert links on shade-9 ---------- */
+
+/* ---------- accessible text summary ---------- */
+.text-view{max-width:760px;margin:0 auto;padding:3rem 1.5rem 5rem;font-family:Georgia,serif;color:#3a2a2f;line-height:1.6}
+.text-view h1{margin-bottom:.2rem}
+.text-view__tagline{color:#8a5a66;margin-top:0}
+.text-view h2{color:#FAA2BF;border-bottom:1px solid #f3c9d4;padding-bottom:.3rem;margin-top:2rem}
+.text-view a{color:#8a5a66}
+@media(min-width:900px){
+  .text-view{max-width:64vw;padding:4vw 3vw 7vw;font-size:1.25vw}
+  .text-view h1{font-size:3.2vw}
+  .text-view h2{font-size:1.9vw}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .ducati{display:none}
+  .hero-title{opacity:1}
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constellation Streaks — Dhaya Raja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F3;
+    --ink:#2A2824;
+    --ink-soft:#6B665F;
+    --blush:#FAA2BF;
+    --blush-deep:#E8789E;
+    --blush-tint:#FDEEF2;
+    --sage:#8CA383;
+    --sage-deep:#516148;
+    --sage-tint:#EEF1E8;
+    --line:#E6E0D8;
+    --card:#F6F1EA;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Work Sans', sans-serif; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family: Georgia, 'Times New Roman', serif; font-weight:400; margin:0; color:var(--ink); }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .wrap{ max-width:980px; margin:0 auto; padding:0 32px; }
+  a{ color:var(--sage-deep); }
+
+  /* ===== NAV / BACK LINK ===== */
+  .backlink{
+    display:block; padding:26px 32px; font-size:14px; color:var(--ink-soft);
+    text-decoration:none; letter-spacing:0.02em;
+  }
+  .backlink:hover{ color:var(--blush-deep); }
+
+  /* ===== HERO ===== */
+  .hero{ padding:20px 0 70px; }
+  .hero-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; }
+  .hero-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+  .tag{
+    font-size:12.5px; color:var(--sage-deep); background:var(--sage-tint);
+    border-radius:20px; padding:6px 14px;
+  }
+  h1.headline{
+    font-size:clamp(34px, 5vw, 54px); line-height:1.12; max-width:760px; letter-spacing:-0.01em;
+  }
+  .hero-sub{ margin-top:20px; max-width:600px; font-size:18px; color:var(--ink-soft); line-height:1.6; }
+
+  .constellation-box{
+    width:280px; height:280px; flex-shrink:0; position:relative;
+  }
+  .constellation-box svg{ width:100%; height:100%; }
+  .dot{ fill:var(--blush); }
+  .dot.faded{ fill:#D9D2C7; }
+  .link-line{
+    stroke:var(--sage); stroke-width:1.6; stroke-dasharray:6 5; fill:none;
+    stroke-dasharray: 300; stroke-dashoffset: 300;
+    animation: draw 2.4s ease forwards 0.3s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  /* ===== SECTIONS ===== */
+  section{ padding:56px 0; border-top:1px solid var(--line); }
+  .eyebrow{ font-size:13px; color:var(--sage-deep); letter-spacing:0.02em; margin-bottom:14px; }
+  h2.section-title{ font-size:clamp(24px,3vw,32px); max-width:640px; margin-bottom:22px; }
+  .lede{ font-size:16.5px; color:var(--ink-soft); max-width:640px; line-height:1.65; }
+
+  .two-col{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start; }
+  @media(max-width:760px){ .two-col{ grid-template-columns:1fr; } }
+
+  /* stat callout */
+  .stat-card{
+    background:var(--card); border-radius:var(--radius); padding:30px 32px;
+  }
+  .stat-num{ font-family:Georgia, serif; font-size:52px; color:var(--blush-deep); line-height:1; }
+  .stat-label{ margin-top:10px; font-size:14.5px; color:var(--ink-soft); max-width:280px; }
+  .stat-quote{
+    margin-top:20px; padding-top:18px; border-top:1px solid var(--line);
+    font-style:italic; font-size:14.5px; color:var(--ink-soft);
+  }
+
+  /* process steps */
+  .steps{ display:flex; flex-direction:column; gap:0; }
+  .step{ display:grid; grid-template-columns:56px 1fr; gap:22px; padding:22px 0; border-top:1px solid var(--line); }
+  .step:first-child{ border-top:none; }
+  .step-num{ font-family:Georgia, serif; font-size:26px; color:var(--blush); }
+  .step h3{ font-size:19px; margin-bottom:6px; }
+  .step p{ margin:0; font-size:15px; color:var(--ink-soft); max-width:560px; }
+
+  /* messaging pillars */
+  .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media(max-width:700px){ .pillars{ grid-template-columns:1fr; } }
+  .pillar{ background:var(--blush-tint); border-radius:var(--radius); padding:26px 24px; }
+  .pillar h3{ font-size:18px; color:var(--blush-deep); margin-bottom:10px; }
+  .pillar p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+  .value-prop{
+    font-family:Georgia, serif; font-style:italic; font-size:22px; color:var(--ink);
+    margin-bottom:28px; max-width:600px;
+  }
+
+  /* competitive table */
+  table.compete{ width:100%; border-collapse:collapse; font-size:14.5px; }
+  table.compete th{
+    text-align:left; padding:10px 14px 10px 0; font-size:12.5px; color:var(--sage-deep);
+    border-bottom:1px solid var(--line); font-weight:600;
+  }
+  table.compete td{ padding:14px 14px 14px 0; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top; }
+  table.compete td:first-child{ color:var(--ink); font-weight:500; }
+  table.compete td.hl{ color:var(--blush-deep); font-weight:600; }
+
+  /* deliverables grid */
+  .deliverables{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media(max-width:700px){ .deliverables{ grid-template-columns:1fr; } }
+  .deliverable{
+    background:var(--card); border-radius:var(--radius); padding:22px 24px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .deliverable .d-tag{ font-size:12px; color:var(--sage-deep); }
+  .deliverable h3{ font-size:17px; }
+  .deliverable p{ margin:0; font-size:14px; color:var(--ink-soft); }
+
+  /* results strip */
+  .results-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  @media(max-width:700px){ .results-grid{ grid-template-columns:repeat(2,1fr); } }
+  .result{ padding:26px 20px; border-right:1px solid var(--line); }
+  .result:last-child{ border-right:none; }
+  .result .num{ font-family:Georgia, serif; font-size:34px; color:var(--sage-deep); }
+  .result .lbl{ margin-top:8px; font-size:13px; color:var(--ink-soft); line-height:1.4; }
+
+  footer{ padding:50px 0 70px; text-align:left; }
+  footer p{ font-size:14px; color:var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-tags">
+          <span class="tag">BeReal Externship &middot; Product Marketing Case Study</span>
+        </div>
+        <h1 class="headline">The only streak that forgives you.</h1>
+        <p class="hero-sub">A go-to-market case study from my BeReal externship: positioning, competitive validation, and a stakeholder pitch for a proposed retention feature, built from research through a cross-functional recommendation.</p>
+      </div>
+      <div class="constellation-box">
+        <svg viewBox="0 0 280 280">
+          <path class="link-line" d="M 60 70 L 110 100 L 90 150 L 130 180 L 190 140 L 170 90 L 210 60" />
+          <circle class="dot" cx="60" cy="70" r="7"/>
+          <circle class="dot" cx="110" cy="100" r="7"/>
+          <circle class="dot faded" cx="90" cy="150" r="7"/>
+          <circle class="dot" cx="130" cy="180" r="7"/>
+          <circle class="dot" cx="190" cy="140" r="7"/>
+          <circle class="dot" cx="170" cy="90" r="7"/>
+          <circle class="dot" cx="210" cy="60" r="7"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ROLE & PROBLEM -->
+  <section>
+    <div class="eyebrow">Role &amp; the problem</div>
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">Led GTM strategy end to end, from research to recommendation.</h2>
+        <p class="lede">I owned the full go-to-market cycle for a proposed BeReal feature: competitive research, user insight synthesis, positioning, cross-platform validation, and the pitch that carried it to a Proceed/Refine/Pivot decision. This is the kind of end-to-end ownership PMM roles ask for, running independently across research, messaging, and stakeholder communication.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">44%</div>
+        <div class="stat-label">of coded user sentiment on BeReal's own streak feature cited bugs or lost streaks, the highest-frequency, highest-intensity theme in the research.</div>
+        <div class="stat-quote">"Lost a 650+ streak because a bug deleted my BeReal."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY -->
+  <section>
+    <div class="eyebrow">Strategy &amp; process</div>
+    <h2 class="section-title">A four-stage GTM process, from market data to a validated narrative.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Market &amp; competitive research</h3>
+          <p>Synthesized company and market data (Crunchbase, Sensor Tower, analyst reports) and benchmarked BeReal against Snapchat and TikTok on the retention mechanics driving each platform's MAUs.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>User insight synthesis</h3>
+          <p>Coded sentiment themes across both platforms using manual and AI-assisted analysis, cross-validating findings to isolate the single highest-leverage pain point worth solving for.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Positioning &amp; concept design</h3>
+          <p>Reframed BeReal's streak mechanic around its authenticity pillars, deliberately positioning it against the gamified patterns used by Snapchat and TikTok rather than copying them.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Validation &amp; GTM narrative</h3>
+          <p>Ran a cross-platform focus group and survey, then built an evidence-backed pitch translating research into a business case, closing with a clear recommendation for stakeholders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING & MESSAGING -->
+  <section>
+    <div class="eyebrow">Positioning &amp; messaging</div>
+    <h2 class="section-title">A messaging framework built to hold up against gamified competitors.</h2>
+    <p class="value-prop">"Constellation Streaks: the only streak that forgives you."</p>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Authentic</h3>
+        <p>No badges, no rewards, no achievement pop-ups, a deliberate contrast to Snapchat and TikTok's gamified retention loops.</p>
+      </div>
+      <div class="pillar">
+        <h3>Forgiving</h3>
+        <p>A missed day fades into the pattern instead of resetting to zero, directly answering BeReal's top-cited user complaint.</p>
+      </div>
+      <div class="pillar">
+        <h3>Distinct</h3>
+        <p>Built on BeReal's existing habit loop rather than importing a mechanic from a competitor, so it reads as native to the brand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE INTELLIGENCE -->
+  <section>
+    <div class="eyebrow">Competitive intelligence</div>
+    <h2 class="section-title">Benchmarked against the two features it has to win against.</h2>
+    <table class="compete">
+      <tr><th>Dimension</th><th>Constellation Streaks (BeReal)</th><th>Snapstreaks (Snapchat)</th></tr>
+      <tr><td>Failure state</td><td class="hl">Fades into a gap, streak survives</td><td>Resets to zero, hourglass warning creates urgency</td></tr>
+      <tr><td>Emotional tone</td><td class="hl">Calm, low-pressure</td><td>Panic-inducing, "you don't want to lose your streak"</td></tr>
+      <tr><td>Reward framing</td><td class="hl">No badges or achievements</td><td>Fire emoji, streak length as status signal</td></tr>
+      <tr><td>Tested reaction</td><td class="hl">"This just kind of shrugs about it."</td><td>"The hourglass makes you panic."</td></tr>
+    </table>
+  </section>
+
+  <!-- ENABLEMENT / DELIVERABLES -->
+  <section>
+    <div class="eyebrow">Cross-functional enablement</div>
+    <h2 class="section-title">Work samples built for engineering, design, and leadership alignment.</h2>
+    <div class="deliverables">
+      <div class="deliverable">
+        <span class="d-tag">Research</span>
+        <h3>Feature &amp; Sentiment Analysis</h3>
+        <p>Product Feature Comparison Table, plus clustered user sentiment themes for BeReal Streaks and Snapchat Spotlight (AI &amp; manual findings, cross-validated).</p>
+      </div>
+      <div class="deliverable">
+        <span class="d-tag">Product</span>
+        <h3>Problem Statement &amp; Opportunity Note</h3>
+        <p>Journey-mapped problem framing that fed directly into the PRD-lite: target user, MAU-oriented success metrics, and acceptance criteria.</p>
+      </div>
+      <div class="deliverable">
+        <span class="d-tag">Validation</span>
+        <h3>Focus Group Transcript &amp; Test Summary Report</h3>
+        <p>Raw notes and transcript from a 6-person cross-platform test, synthesized into a report with a Refine recommendation.</p>
+      </div>
+      <div class="deliverable">
+        <span class="d-tag">Enablement</span>
+        <h3>Constellation Streaks Pitch Deck</h3>
+        <p>8-slide stakeholder deck with speaker notes and a recorded 5-minute pitch walking Problem through Impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section>
+    <div class="eyebrow">Results</div>
+    <h2 class="section-title">Validated with real signal, not just enthusiasm.</h2>
+    <div class="results-grid">
+      <div class="result"><div class="num">44%</div><div class="lbl">of user sentiment tied to the exact problem this feature solves</div></div>
+      <div class="result"><div class="num">4.5/5</div><div class="lbl">average score on brand-authenticity fit in usability testing</div></div>
+      <div class="result"><div class="num">5/6</div><div class="lbl">test participants said they'd use the feature again</div></div>
+      <div class="result"><div class="num">2/3</div><div class="lbl">competitor-app users said they'd consider switching to BeReal because of it</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>BeReal Externship &middot; Independent product marketing case study &middot; Research, positioning, and pitch by Dhaya Raja</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

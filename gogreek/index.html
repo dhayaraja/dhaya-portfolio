@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GoGreek Chapter Profiles — Case Study | Dhaya Raja</title>
+<style>
+  :root{
+    --blush:#fce8e5; --ink:#2b1f24; --wine:#8c3a52; --wine-dark:#6e2c40;
+    --cream:#f2e4bf; --line:#e3c9c9; --card:#ffffff;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){--blush:#221a1c; --ink:#f3e6e2; --card:#2c2224; --line:#4a3438;}
+  }
+  :root[data-theme="dark"]{--blush:#221a1c; --ink:#f3e6e2; --card:#2c2224; --line:#4a3438;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--blush);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6;}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 80px;}
+  .eyebrow{font-family:Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--wine);margin:0 0 10px;}
+  h1{font-size:2.2rem;margin:0 0 6px;line-height:1.2;}
+  .role{font-family:Arial,sans-serif;font-size:15px;color:var(--ink);opacity:.75;margin:0 0 22px;}
+  .linkrow{font-family:Arial,sans-serif;font-size:13px;margin-bottom:32px;}
+  .linkrow a{color:var(--wine);text-decoration:none;border-bottom:1px solid var(--line);margin-right:16px;}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 40px;}
+  .tab{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.04em;background:var(--card);border:1px solid var(--line);color:var(--wine-dark);padding:6px 12px;border-radius:20px;}
+  h2{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);border-bottom:1px solid var(--line);padding-bottom:8px;margin:40px 0 16px;}
+  p{margin:0 0 14px;}
+  .pull{font-style:italic;font-size:1.1rem;color:var(--wine-dark);border-left:3px solid var(--wine);padding:2px 0 2px 18px;margin:20px 0;}
+  ul{margin:0 0 14px;padding-left:20px;}
+  li{margin-bottom:8px;}
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 6px;}
+  .stat{flex:1 1 140px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px;}
+  .stat b{display:block;font-family:Arial,sans-serif;font-size:1.5rem;color:var(--wine);}
+  .stat span{font-family:Arial,sans-serif;font-size:12px;opacity:.75;}
+  table{width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin:14px 0;}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
+  th{color:var(--wine);font-weight:normal;text-transform:uppercase;font-size:11px;letter-spacing:.04em;}
+  .qabox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-family:Arial,sans-serif;font-size:14px;margin:14px 0;}
+  .qabox .lbl{font-weight:bold;color:var(--wine);font-size:11px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:8px;}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-family:Arial,sans-serif;font-size:13px;opacity:.7;}
+  footer a{color:var(--wine);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Case Study — Higher-Ed Content Migration &amp; SEO</p>
+  <h1>GoGreek Chapter Profiles</h1>
+  <p class="role">Digital Experience Assistant, OSU Center for Fraternity &amp; Sorority Life</p>
+  <div class="linkrow">
+    <a href="https://gogreek.oregonstate.edu/chapter-profiles" target="_blank">Live chapter directory</a>
+  </div>
+  <div class="tabs">
+    <span class="tab">Chapter Information</span>
+    <span class="tab">Contact Information</span>
+    <span class="tab">Quick Facts</span>
+    <span class="tab">Socials &amp; Websites</span>
+    <span class="tab">Relationship Statement</span>
+  </div>
+
+  <h2>The Problem</h2>
+  <p>OSU's Center for Fraternity &amp; Sorority Life was migrating its site from Drupal 7 to Drupal 10 — including 48+ individual chapter profile pages, each one a scattered, inconsistently-organized mix of contact details, recruitment info, and chapter history. There was no shared template, no single source of truth for what belonged where, and no guarantee the data had migrated correctly at all.</p>
+
+  <h2>My Role</h2>
+  <p>I owned the content-type architecture for the new <code>chapter_profile</code> template — deciding exactly which fields lived on which tab so that any of the 48 chapters could be dropped into the same structure without breaking. That meant working field-by-field through Drupal's Manage Form Display: moving Chapter Website into Contact Information, relocating Relationship Statement Award Levels and Greek Letters into General Information in a specific order, and pushing legacy one-off fields to Disabled rather than letting them clutter every profile.</p>
+  <p>The result was a clean, repeatable five-tab structure:</p>
+  <p class="pull">Chapter Information → Contact Information → Quick Facts → Socials &amp; Websites → Relationship Statement</p>
+  <p>I also partnered with the team to build the Drupal View powering an accordion layout for the profile fields, and styled the Bootstrap-based action buttons at the bottom of each page.</p>
+
+  <h2>QA: Catching What the Migration Missed</h2>
+  <p>Standardizing the template was only half the job — the data itself had to survive the move intact. I personally reviewed 10 assigned chapter profiles line-by-line against the old Drupal 7 source in a shared tracking spreadsheet, and caught real, launch-blocking errors before they went live:</p>
+  <div class="qabox">
+    <span class="lbl">Sample of issues caught pre-launch</span>
+    <table>
+      <tr><th>Chapter</th><th>Issue found</th></tr>
+      <tr><td>Lambda Chi Alpha</td><td>Instagram not linked; recruitment contact missing</td></tr>
+      <tr><td>Phi Gamma Delta – FIJI</td><td>"Chapter Facts" link still pointed at the old D7 site; office # missing</td></tr>
+      <tr><td>Sigma Alpha Epsilon</td><td>Chapter facts link pointed at D7 site; recruitment contact email not fully linked</td></tr>
+      <tr><td>Chi Theta Phi</td><td>Total member count incorrect (31 vs. listed 28)</td></tr>
+      <tr><td>Pi Kappa Phi</td><td>Profile not found / missing entirely</td></tr>
+    </table>
+  </div>
+  <p>I flagged each one for correction before publish, then joined stakeholder review calls with the client (Kelsey and Kelly) to walk through the new structure and confirm it met the team's needs — including a live training session showing how new profiles would be published going forward.</p>
+
+  <h2>Outcome</h2>
+  <p>All 48 chapter profiles launched on the new Drupal 10 template. Traffic data pulled after launch shows the migration didn't just preserve visibility — it grew it:</p>
+  <div class="stats">
+    <div class="stat"><b>88</b><span>Domain Authority ("Amazing" tier)</span></div>
+    <div class="stat"><b>6.1K</b><span>monthly organic visitors</span></div>
+    <div class="stat"><b>1.5K</b><span>ranking keywords (+644 gained)</span></div>
+    <div class="stat"><b>0</b><span>paid traffic — 100% organic/earned</span></div>
+  </div>
+  <p>The Chapter Profiles hub is now the <b>second most-visited page on the entire domain</b> behind the homepage (~1.8K estimated monthly visits), and individual chapters continue pulling their own standalone search traffic — Phi Gamma Delta–FIJI alone draws an estimated 654 visits/month. Rather than one migrated page, the standardized template produced 48 independently discoverable, search-indexed landing pages for prospective members — and organic traffic climbed sharply in the months immediately following the relaunch.</p>
+
+  <footer>Case study by Dhaya Raja · <a href="https://gogreek.oregonstate.edu/chapter-profiles">gogreek.oregonstate.edu/chapter-profiles</a></footer>
+</div>
+</body>
+</html>
